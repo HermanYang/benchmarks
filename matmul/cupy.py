@@ -22,12 +22,12 @@ def matmul(shape_a, shape_b, dt):
     nvtx.pop_range(rng)
     return out
 
-inputs = pandas.read_csv("inputs.csv")
-
-for index, row in inputs.iterrows():
-    shape_a = (row["m"], row["k"])
-    shape_b = (row["k"], row["n"])
-    dt = cupy.dtype(row['dtype'])
-    rng = nvtx.push_range(f"{index}")
-    matmul(shape_a, shape_b, dt)
-    nvtx.pop_range(rng)
+if __name__ == "__main__":
+    inputs = pandas.read_csv("matmul/float32.csv")
+    for index, row in inputs.iterrows():
+        shape_a = (row["m"], row["k"])
+        shape_b = (row["k"], row["n"])
+        dt = cupy.dtype(row['dtype'])
+        rng = nvtx.push_range(f"{index}")
+        matmul(shape_a, shape_b, dt)
+        nvtx.pop_range(rng)
