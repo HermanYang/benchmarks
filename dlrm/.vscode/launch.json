@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "dlrm_gpu_inference",
+            "type": "python",
+            "request": "launch",
+            "program": "dlrm_s_pytorch.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--arch-sparse-feature-size",
+                "64",
+                "--arch-embedding-size",
+                "9980333-36084-17217-7378-20134-3-7112-1442-61-9758201-1333352-313829-10-2208-11156-122-4-970-14-9994222-7267859-9946608-415421-12420-101-36",
+                "--arch-mlp-bot",
+                "13-512-256-64",
+                "--arch-mlp-top",
+                "415-512-512-256-1",
+                "--arch-interaction-op",
+                "dot",
+                "--num-batches",
+                "10",
+                "--max-ind-range",
+                "10000000",
+                "--memory-map",
+                "--mini-batch-size",
+                "2048",
+                "--num-indices-per-lookup",
+                "1",
+                "--num-indices-per-lookup-fixed",
+                "True",
+                "--inference-only",
+                "--use-gpu",
+            ]
+        }
+    ]
+}
